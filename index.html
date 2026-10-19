@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>♡ Happy Birthday</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;500&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+:root{--bg1:#0b0a1f;--bg2:#2a1233;--ink:#fbeff1;--rose:#f3b6c6;--gold:#e9c98f;--soft:rgba(255,255,255,.08)}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{background:radial-gradient(120% 90% at 50% 0%,var(--bg2),var(--bg1) 70%);color:var(--ink);font-family:'Cairo',system-ui,sans-serif;overflow:hidden;padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
+canvas{position:fixed;inset:0;width:100%;height:100%;z-index:0}
+.scene{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:28px 24px;text-align:center;opacity:0;visibility:hidden;transition:opacity 1.4s ease,visibility 1.4s;z-index:1;overflow-y:auto}
+.scene.on{opacity:1;visibility:visible}
+h1,h2{font-family:'Amiri',serif;font-weight:700;color:var(--gold);line-height:1.5}
+h1{font-size:2.3rem}h2{font-size:1.7rem}
+.script{font-family:'Great Vibes',cursive;font-size:3.2rem;color:var(--rose);direction:ltr;line-height:1.2}
+.fade{opacity:0;transform:translateY(14px);animation:up 1.6s ease forwards;font-size:1.12rem;line-height:2;max-width:430px;font-weight:300}
+.on .fade{animation-play-state:running}
+.scene:not(.on) .fade{animation:none;opacity:0}
+@keyframes up{to{opacity:1;transform:none}}
+button{font:inherit;font-weight:500;color:#2a1233;background:linear-gradient(135deg,var(--gold),var(--rose));border:0;border-radius:40px;padding:13px 34px;font-size:1.05rem;box-shadow:0 8px 30px rgba(243,182,198,.3);cursor:pointer;margin-top:8px}
+button:active{transform:scale(.96)}
+.hearts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:360px}
+.heart{background:var(--soft);border:1px solid rgba(255,255,255,.15);border-radius:20px;min-height:84px;padding:10px;font-size:1.9rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.5s;line-height:1.5}
+.heart.open{font-size:.86rem;color:var(--ink);background:rgba(243,182,198,.16)}
+.photos{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;max-width:430px}
+.pol{width:132px;height:178px;perspective:900px;color:#4a2a3a;transform:rotate(-3deg);font-size:.78rem;line-height:1.5;cursor:pointer}
+.pol .in{position:relative;width:100%;height:100%;transition:transform .8s;transform-style:preserve-3d}
+.pol.flip .in{transform:rotateY(180deg)}
+.pol .front,.pol .back{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:6px;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.pol .front{background:#fff6f0;padding:8px 8px 10px}
+.pol .back{transform:rotateY(180deg);background:linear-gradient(135deg,#fbe3d0,#f3b6c6);display:flex;align-items:center;justify-content:center;text-align:center;padding:12px;font-size:.88rem;line-height:1.8;font-weight:500}
+.pol:nth-child(2){transform:rotate(2.5deg)}.pol:nth-child(3){transform:rotate(-1.5deg)}
+.pic{height:118px;border-radius:3px;background:linear-gradient(135deg,#f3b6c6,#b88ad0);display:flex;align-items:center;justify-content:center;font-size:2.2rem;margin-bottom:6px;position:relative;overflow:hidden}
+.pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cake{position:relative;width:200px;height:170px;margin-top:20px}
+.layer{position:absolute;left:50%;transform:translateX(-50%);border-radius:14px}
+.l1{bottom:0;width:200px;height:66px;background:linear-gradient(#f7c6d3,#e79ab1)}
+.l2{bottom:62px;width:150px;height:54px;background:linear-gradient(#fbe3d0,#f1c4a8)}
+.drip{position:absolute;left:0;right:0;top:0;height:14px;background:#fff6f0;border-radius:14px 14px 40% 40%}
+.candle{position:absolute;bottom:114px;width:8px;height:40px;background:linear-gradient(#fff,#f3b6c6);border-radius:3px}
+.flame{position:absolute;left:50%;top:-20px;width:12px;height:18px;margin-left:-6px;background:radial-gradient(#fff6c8,#ffb347 60%,transparent 70%);border-radius:50% 50% 50% 50%/60% 60% 40% 40%;animation:fl .25s infinite alternate;transition:opacity .8s;filter:blur(.3px);box-shadow:0 0 22px 8px rgba(255,190,90,.45)}
+.out .flame{opacity:0}
+@keyframes fl{to{transform:scale(1.1,.92) rotate(3deg)}}
+.float{position:fixed;bottom:-30px;z-index:5;pointer-events:none;animation:rise linear forwards}
+@keyframes rise{to{transform:translateY(-110vh) rotate(40deg);opacity:0}}
+.sig{font-family:'Great Vibes',cursive;font-size:2rem;color:var(--gold);direction:ltr}
+.mute{position:fixed;top:calc(14px + env(safe-area-inset-top,0));left:14px;z-index:9;background:var(--soft);box-shadow:none;color:var(--ink);padding:8px 14px;font-size:.85rem;display:none}
+small{opacity:.7}
+</style>
+</head>
+<body>
+<canvas id="sky"></canvas>
+<button class="mute" id="mute">🔊</button>
+
+<section class="scene on" id="s0">
+  <div class="script">For my love</div>
+  <h1 class="fade" style="animation-delay:.6s">يوم ميلادك الليلة،<br>وفي حاجة صغيرة مستنياكي ♡</h1>
+  <p class="fade" style="animation-delay:1.6s"><small>20 أكتوبر · شغّلي الصوت، وخدي نفس عميق</small></p>
+  <button id="go" class="fade" style="animation-delay:2.4s">افتحي المفاجأة</button>
+</section>
+
+<section class="scene" id="s1">
+  <h2 class="fade">إلى أحلى حاجة حصلتلي</h2>
+  <p class="fade" style="animation-delay:1.6s">النهارده يوم مش عادي. النهارده اليوم اللي ربنا خلقك فيه، واللي خلّى دنيتي أحلى من غير ما تحسي.</p>
+  <p class="fade" style="animation-delay:4.2s">مش هقدر أقولك كل اللي جوايا في سطرين، بس هحاول أخليكي تحسي إنك غالية عليا قد إيه.</p>
+  <p class="fade" style="animation-delay:6.8s">كل سنة وإنتي طيبة يا قلبي، وكل سنة وأنا أقرب ليكي ♡</p>
+  <button class="next fade" style="animation-delay:8.6s">كمّلي</button>
+</section>
+
+<section class="scene" id="s2">
+  <h2 class="fade">حاجات بحبها فيكي</h2>
+  <p class="fade"><small>دوسي على كل قلب</small></p>
+  <div class="hearts" id="hearts"></div>
+  <button class="next">كمّلي</button>
+</section>
+
+<section class="scene" id="s3">
+  <h2 class="fade">لحظاتنا</h2>
+  <p class="fade" style="animation-delay:.6s"><small>دوسي على كل صورة 💌</small></p>
+  <div class="photos">
+    <div class="pol"><div class="in"><div class="front"><div class="pic">🌙<img src="photo1.jpg" alt="" onerror="this.remove()"></div>أول حكاية</div><div class="back">أول حكاية بينا كانت بداية أحلى أيام عمري ♡</div></div></div>
+    <div class="pol"><div class="in"><div class="front"><div class="pic">✨<img src="photo2.jpg" alt="" onerror="this.remove()"></div>ضحكتك</div><div class="back">ضحكتك دي أحلى صوت سمعته في حياتي ✨</div></div></div>
+    <div class="pol"><div class="in"><div class="front"><div class="pic">🪐<img src="photo3.jpg" alt="" onerror="this.remove()"></div>عالمنا</div><div class="back">معاكي بقى عندي عالم تاني، وعالمي كله إنتي ♡</div></div></div>
+  </div>
+  <p class="fade" style="animation-delay:1.5s">وكل لحظة معاكي، كبيرة أو صغيرة، بتفضل في قلبي.</p>
+  <button class="next">كمّلي</button>
+</section>
+
+<section class="scene" id="s4">
+  <h2 class="fade">اتمني أمنية…</h2>
+  <div class="cake" id="cake">
+    <div class="layer l1"></div><div class="layer l2"><div class="drip"></div></div>
+    <div class="candle" style="left:62px"><div class="flame"></div></div>
+    <div class="candle" style="left:96px"><div class="flame"></div></div>
+    <div class="candle" style="left:130px"><div class="flame"></div></div>
+  </div>
+  <p class="fade" id="wish" style="animation-delay:1s">غمضي عيونك واتمني، وبعدين اطفي الشمع</p>
+  <button id="blow">اطفي الشمع 🕯️</button>
+</section>
+
+<section class="scene" id="s5">
+  <div class="script" id="hb" style="font-size:3.4rem">Happy 22nd Birthday<br>Baby</div>
+  <p class="fade" style="animation-delay:2s">أمنيتي الوحيدة إنك تفضلي مبسوطة، وأنا جنبك في كل لحظة.</p>
+  <p class="fade" style="animation-delay:4s">حبي ليكي بيكبر كل يوم، ومش ناوي يوقف أبدًا ♡</p>
+  <div class="sig fade" style="animation-delay:6s">Morii</div>
+</section>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+let cur=0;
+function show(n){$$('.scene').forEach((e,i)=>e.classList.toggle('on',i===n));cur=n;}
+$$('.pol').forEach(p=>p.onclick=()=>p.classList.toggle('flip'));
+$$('.next').forEach(b=>b.onclick=()=>show(cur+1));
+
+/* stars */
+const cv=$('#sky'),cx=cv.getContext('2d');let W,H,st=[];
+function rs(){W=cv.width=innerWidth;H=cv.height=innerHeight;st=Array.from({length:90},()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.4+.3,p:Math.random()*6}))}
+rs();addEventListener('resize',rs);
+(function loop(t){cx.clearRect(0,0,W,H);st.forEach(s=>{cx.globalAlpha=.35+.45*Math.sin(t/1200+s.p);cx.fillStyle='#fff';cx.beginPath();cx.arc(s.x,s.y,s.r,0,7);cx.fill()});requestAnimationFrame(loop)})(0);
+
+/* reasons */
+['ضحكتك اللي بتنوّر يومي','قلبك الطيب','حنيتك عليا','طريقتك وإنتي بتتكلمي','إنك بتفهميني من غير كلام','وجودك جنبي بيطمنني'].forEach((t,i)=>{
+ const h=document.createElement('div');h.className='heart';h.textContent='♡';
+ h.onclick=()=>{h.textContent=t;h.classList.add('open')};$('#hearts').appendChild(h)});
+
+/* floating hearts */
+function rain(n,em){for(let i=0;i<n;i++){const e=document.createElement('div');e.className='float';e.textContent=em[i%em.length];
+ e.style.left=Math.random()*100+'vw';e.style.fontSize=(14+Math.random()*22)+'px';e.style.animationDuration=(5+Math.random()*5)+'s';e.style.animationDelay=Math.random()*1.5+'s';
+ document.body.appendChild(e);setTimeout(()=>e.remove(),12000)}}
+
+/* audio: generated soft piano / music box. Optional: song.mp3 / voice.mp3 next to index.html */
+let ac,master,padBus,bg,muted=false,pad=true,nT=0,k=0;
+const F=m=>440*Math.pow(2,(m-69)/12);
+function mkReverb(){const L=ac.sampleRate*3.8,b=ac.createBuffer(2,L,ac.sampleRate);
+ for(let c=0;c<2;c++){const d=b.getChannelData(c);for(let i=0;i<L;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/L,2.8)}
+ const r=ac.createConvolver();r.buffer=b;return r}
+function key(m,t,d,v){[[1,1],[2,.3],[3,.1],[4,.04]].forEach(([h,a])=>{
+ const o=ac.createOscillator(),g=ac.createGain();o.type='sine';o.frequency.value=F(m)*h;
+ g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v*a,t+.01);g.gain.exponentialRampToValueAtTime(.0004,t+d/(h*.5+.5));
+ o.connect(g);g.connect(master);o.start(t);o.stop(t+d+.1)})}
+function warm(m,t,d,v){[-5,5].forEach(c=>{const o=ac.createOscillator(),g=ac.createGain();o.type='triangle';o.frequency.value=F(m);o.detune.value=c;
+ g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+1.6);g.gain.linearRampToValueAtTime(0,t+d);
+ o.connect(g);g.connect(padBus);o.start(t);o.stop(t+d+.1)})}
+const CH=[[60,64,67,71,48],[57,60,64,67,45],[53,57,60,64,41],[55,59,62,67,43]];
+function startAmbient(){
+ ac=new (window.AudioContext||window.webkitAudioContext)();ac.resume&&ac.resume();
+ master=ac.createGain();master.gain.value=.85;padBus=ac.createGain();padBus.connect(master);
+ const lp=ac.createBiquadFilter();lp.type='lowpass';lp.frequency.value=3200;master.connect(lp);lp.connect(ac.destination);
+ const rv=mkReverb(),rg=ac.createGain();rg.gain.value=.7;lp.connect(rv);rv.connect(rg);rg.connect(ac.destination)}
+const q=.72,SEQ=[[67,.75],[67,.25],[69,1],[67,1],[72,1],[71,2],[67,.75],[67,.25],[69,1],[67,1],[74,1],[72,2],[67,.75],[67,.25],[79,1],[76,1],[72,1],[71,1],[69,1],[77,.75],[77,.25],[76,1],[72,1],[74,1],[72,3]];
+const CHORDS=[[0,[48,60,64,67]],[6,[43,55,59,62]],[12,[48,60,64,67]],[18,[41,53,57,60]],[22,[48,60,64,67]]];
+function hbMelody(t0){let t=t0;SEQ.forEach(([m,b])=>{key(m,t,b*q*3.5,.24);t+=b*q});
+ CHORDS.forEach(([beat,ch])=>ch.forEach((m,i)=>warm(m,t0+beat*q+i*.08,5,.05)));return t-t0}
+function loopHB(){if(!ac)return;const d=hbMelody(ac.currentTime+.3);setTimeout(loopHB,(d+2.5)*1000)}
+$('#go').onclick=()=>{
+ try{startAmbient();loopHB()}catch(e){}
+ $('#mute').style.display='block';show(1)};
+$('#mute').onclick=()=>{muted=!muted;$('#mute').textContent=muted?'🔇':'🔊';if(master)master.gain.value=muted?0:.85};
+
+/* cake */
+$('#blow').onclick=()=>{$('#cake').classList.add('out');$('#blow').style.display='none';
+ $('#wish').textContent='الله يتمملك كل اللي نفسك فيه ♡';rain(26,['💗','✨','🌸','💖']);
+ setTimeout(()=>{show(5);rain(30,['💗','🌸','✨'])},3200)};
+</script>
+</body>
+</html>
